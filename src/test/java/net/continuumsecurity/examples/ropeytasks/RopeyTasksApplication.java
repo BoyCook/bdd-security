@@ -15,23 +15,22 @@ public class RopeyTasksApplication extends WebApplication implements ILogin,
 
     public RopeyTasksApplication() {
         super();
-
     }
 
     @Override
     public void openLoginPage() {
-        driver.get(Config.getInstance().getBaseUrl() + "user/login");
-        findAndWaitForElement(By.id("username"));
+        driver.get(Config.getInstance().getBaseUrl() + "login");
+        findAndWaitForElement(By.name("username"));
     }
 
     @Override
     public void login(Credentials credentials) {
         UserPassCredentials creds = new UserPassCredentials(credentials);
-        driver.findElement(By.id("username")).clear();
-        driver.findElement(By.id("username")).sendKeys(creds.getUsername());
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys(creds.getPassword());
-        driver.findElement(By.name("_action_login")).click();
+        driver.findElement(By.name("username")).clear();
+        driver.findElement(By.name("username")).sendKeys(creds.getUsername());
+        driver.findElement(By.name("password")).clear();
+        driver.findElement(By.name("password")).sendKeys(creds.getPassword());
+        driver.findElement(By.xpath("//input[@value='Sign In'][@type='submit']")).click();
     }
 
     // Convenience method
@@ -86,4 +85,3 @@ public class RopeyTasksApplication extends WebApplication implements ILogin,
     }
 
 }
-
