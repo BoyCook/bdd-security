@@ -7,3 +7,5 @@ build/
 *.iml
 *.output
 log4j.properties
+MovieService-master
+master.zip
