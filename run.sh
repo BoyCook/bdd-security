@@ -8,4 +8,4 @@ mvn clean package
 nohup java -jar target/movie-service.jar --server.port=5000 > /dev/null 2>&1 & echo $! > run.pid
 cd ../
 ./gradlew
-kill -9 `cat run.pid`
+kill -9 `cat MovieService-master/run.pid`
